@@ -12,7 +12,9 @@ RUN makepkg --noconfirm -si
 WORKDIR /home/user/yaourt
 RUN makepkg --noconfirm -si
 RUN yaourt --noconfirm -Syu
+# Uncomment to speed up rebuilds
+#RUN yaourt --noconfirm -S opam
 
 RUN gpg --recv-key AE07828059A53CC1
-RUN echo '92429807C9853C0744A68B9AAE07828059A53CC1:6:' | gpg --import-ownertrust
+RUN echo '5DD58D70899C454A966D6A5175133C8F94F6E0CC:6:' | gpg --import-ownertrust
 RUN yaourt --noconfirm -S zeroinstall-injector
